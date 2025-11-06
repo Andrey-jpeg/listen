@@ -28,42 +28,32 @@ tap "andrey-jpeg/tap"
 brew "listen"
 ```
 
-## Usage
+## Using listen (Homebrew)
 
-Build the CLI binary:
-
-```bash
-./gradlew build
-```
-
-You can find the debug executables at:
-
-- `build/bin/macosArm64/debugExecutable/listen.kexe`
-- `build/bin/macosX64/debugExecutable/listen.kexe`
-
-Run the binary directly (ensure it has execute permission):
+After installation, the `listen` executable is available on your `PATH`. Invoke it with the source song / album URL:
 
 ```bash
-./build/bin/macosArm64/debugExecutable/listen.kexe https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT
+listen https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT
 ```
 
-- `-p/--platform` chooses the destination catalogue. When omitted, the tool lists all available matches and lets you pick one with the arrow keys.
-- The final argument is the source song URL.
-
-If the song.link API cannot provide a link for the requested platform, the command exits with code `1` and prints the error message.
+- Pass `-p/--platform` to jump straight to a specific catalogue, e.g. `listen -p apple-music …`.
+- When no platform is provided, `listen` lists the matches returned by song.link; use the arrow keys and Enter to copy the desired URL to your clipboard.
+- Run `listen --help` anytime to inspect the available flags and supported platforms.
 
 ## Building Native Binaries
 
 The project targets both `macosArm64` and `macosX64`. Build the executables for each architecture:
 
 ```bash
-./gradlew linkDebugExecutableMacosArm64 linkDebugExecutableMacosX64
+./gradlew build
 ```
 
 Gradle produces binaries at:
 
 - `build/bin/macosArm64/debugExecutable/listen.kexe`
 - `build/bin/macosX64/debugExecutable/listen.kexe`
+- `build/bin/macosArm64/releaseExecutable/listen.kexe`
+- `build/bin/macosX64/releaseExectuable/listen.kexe`
 
 ## Troubleshooting
 
