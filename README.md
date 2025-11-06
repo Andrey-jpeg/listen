@@ -43,22 +43,10 @@ Gradle produces binaries at:
 - `build/bin/macosArm64/debugExecutable/listen.kexe`
 - `build/bin/macosX64/debugExecutable/listen.kexe`
 
-To ship a universal macOS binary (required for Homebrew), create a fat binary with `lipo`:
-
-```bash
-mkdir -p build/distributions
-lipo -create \
-  build/bin/macosArm64/debugExecutable/listen.kexe \
-  build/bin/macosX64/debugExecutable/listen.kexe \
-  -output build/distributions/listen
-chmod +x build/distributions/listen
-```
-
 ## Troubleshooting
 
 - **Native build fails with `xcrun` errors** – ensure Xcode and its command line tools are installed and configured.
 - **No link returned for a platform** – song.link does not guarantee coverage for every track or region. The CLI reports the failure and exits non-zero.
-- **Passing arguments from Gradle** – use `-Pargs='...'` (or `-PappArgs='...'`) to forward CLI arguments when running via the Gradle task.
 
 ## Project Structure
 
