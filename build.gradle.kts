@@ -44,7 +44,7 @@ kotlin {
 
     targets.withType<KotlinNativeTarget>().configureEach {
         binaries {
-            executable(listOf(DEBUG)) {
+            executable() {
                 baseName = "listen"
                 entryPoint = "com.github.andreyjpeg.listen.main"
             }
