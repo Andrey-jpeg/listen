@@ -6,6 +6,28 @@
 
 - macOS with Xcode command-line tools for native compilation (`xcode-select --install`)
 
+## Installation
+
+Install via Homebrew from the custom tap:
+
+```bash
+brew install andrey-jpeg/tap/listen
+```
+
+You can also add the tap explicitly:
+
+```bash
+brew tap andrey-jpeg/tap
+brew install listen
+```
+
+When managing dependencies with a `Brewfile`, include:
+
+```ruby
+tap "andrey-jpeg/tap"
+brew "listen"
+```
+
 ## Usage
 
 Build the CLI binary:
